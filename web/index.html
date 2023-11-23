@@ -24,6 +24,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="todo_flutter_app_firebase">
+  <meta name="google-signin-client_id" content="122175591498-8s955buo9h2tmp6eo4rev5s350oietr1.apps.googleusercontent.com"/>
+
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -41,6 +43,7 @@
 </head>
 <body>
   <script>
+    let useHtml = true;
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -48,7 +51,10 @@
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+          let config = {
+            renderer: useHtml ? "html" : "canvaskit",
+          };
+          engineInitializer.initializeEngine(config).then(function(appRunner) {
             appRunner.runApp();
           });
         }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'core/ui/theme/app_themev2.dart';
 import 'data/datasource/sqlite/sqlite_adm_connection.dart';
 
-import 'domain/modules/user_module.dart';
+import 'domain/modules/user/user_module.dart';
 import 'ui/pages/splash/splash01_page.dart';
 
 class AppWidget extends StatefulWidget {

@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         Provider<UserService>(
             create: (context) =>
                 UserServiceImpl(userRepository: context.read())),
-        //  ChangeNotifierProvider(create: (context) => AuthProvider(firebaseAuth: context.read(), userService: context.read())..loadListener(), lazy: false)
+      //  ChangeNotifierProvider(create: (context) => AuthProvider(firebaseAuth: context.read(), userService: context.read())..loadListener(), lazy: false)
       ],
       child: AppWidget(title: title),
     );

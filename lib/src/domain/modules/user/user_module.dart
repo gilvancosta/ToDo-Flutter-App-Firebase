@@ -1,10 +1,10 @@
 import 'package:provider/provider.dart';
 
-import '../../domain/modules/todo_list_module.dart';
-import '../../ui/pages/login/controller/login_controller.dart';
-import '../../ui/pages/login/login_page.dart';
-import '../../ui/pages/register/controller/register_controller.dart';
-import '../../ui/pages/register/register_page.dart';
+import '../todo_list_module.dart';
+import '../../../ui/pages/login/controller/login_controller.dart';
+import '../../../ui/pages/login/login_page.dart';
+import '../../../ui/pages/register/controller/register_controller.dart';
+import '../../../ui/pages/register/register_page.dart';
 
 class UserModule extends TodoListModule {
   UserModule()
