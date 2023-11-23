@@ -10,7 +10,6 @@ import '../../../core/widgets/TextFormField/textformfield_widget.dart';
 import '../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/login_controller.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -28,19 +27,19 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
 
-/*     
-    AppListenerNotifier(changeNotifier: context.read<LoginController>()).listener(
-        context: context,
-        everVoidCallback: (notifier, listenerInstance) {
-          if (notifier is LoginController) {
-            if (notifier.hasInfo) {
-              AppMessages.of(context).showInfo(notifier.infoMessage!);
-            }
-          }
-        },
-        sucessVoidCallback: (notifier, listenerNotifier) {
-          print('Login efetuado com sucesso !!!!!');
-        }); */
+    AppListenerNotifier(changeNotifier: context.read<LoginController>())
+        .listener(
+            context: context,
+            everVoidCallback: (notifier, listenerInstance) {
+              if (notifier is LoginController) {
+                if (notifier.hasInfo) {
+                  AppMessages.of(context).showInfo(notifier.infoMessage!);
+                }
+              }
+            },
+            sucessVoidCallback: (notifier, listenerNotifier) {
+              print('Login efetuado com sucesso !!!!!');
+            });
   }
 
   @override
@@ -65,7 +64,8 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 20),
                       const AppLogoLoginWidget(),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 40, vertical: 20),
                         child: Form(
                           key: _formKey,
                           child: Column(
@@ -86,34 +86,43 @@ class _LoginPageState extends State<LoginPage> {
                                 controller: _passwordEC,
                                 validator: Validatorless.multiple([
                                   Validatorless.required('Senha obrigatória'),
-                                  Validatorless.min(6, 'Senha deve ter pelo menos 6 caracteres'),
+                                  Validatorless.min(6,
+                                      'Senha deve ter pelo menos 6 caracteres'),
                                 ]),
                               ),
                               const SizedBox(height: 10),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   TextButton(
                                     onPressed: () {
                                       if (_emailEC.text.isNotEmpty) {
                                         // Recuperar senha
-                                        context.read<LoginController>().forgotPassword(_emailEC.text);
+                                        context
+                                            .read<LoginController>()
+                                            .forgotPassword(_emailEC.text);
                                       } else {
                                         _emailFocus.requestFocus();
-                                        AppMessages.of(context).showError('Digite um e-mail para recuperar a senha');
+                                        AppMessages.of(context).showError(
+                                            'Digite um e-mail para recuperar a senha');
                                       }
                                     },
                                     child: const Text('Forgot password?'),
                                   ),
                                   ElevatedButton(
                                     onPressed: () {
-                                      final formValid = _formKey.currentState?.validate() ?? false;
+                                      final formValid =
+                                          _formKey.currentState?.validate() ??
+                                              false;
 
                                       if (formValid) {
                                         final email = _emailEC.text;
                                         final password = _passwordEC.text;
 
-                                        context.read<LoginController>().login(email, password);
+                                        context
+                                            .read<LoginController>()
+                                            .login(email, password);
                                       }
                                     },
                                     style: ElevatedButton.styleFrom(
@@ -167,7 +176,8 @@ class _LoginPageState extends State<LoginPage> {
                                   const Text('Não tem conta?'),
                                   TextButton(
                                     onPressed: () {
-                                      Navigator.of(context).pushNamed('/register');
+                                      Navigator.of(context)
+                                          .pushNamed('/register');
                                     },
                                     child: const Text('Cadastre-se'),
                                   )

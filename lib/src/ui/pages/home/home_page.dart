@@ -5,7 +5,7 @@ import 'package:todo_flutter_app_firebase/src/ui/pages/home/widgets/home_drawer.
 import '../../../core/notifier/app_listener_notifier.dart';
 import '../../../core/ui/theme/app_icons.dart';
 import '../../../domain/entities/task_filter_enum.dart';
-import '../../../modules/tasks_module.dart';
+import '../../../domain/modules/tasks_module.dart';
 import 'providers/home_controller.dart';
 import 'widgets/home_filters.dart';
 import 'widgets/home_header.dart';
