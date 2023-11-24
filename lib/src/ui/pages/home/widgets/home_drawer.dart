@@ -81,7 +81,7 @@ class HomeDrawer extends StatelessWidget {
                               AppMessages.of(context).showError('Por favor inserir um Nome, para atualizar o registro');
                             } else {
                               Loader.show(context);
-                              context.read<UserService>().updateDisplayName(nameValue);
+                              context.read<LoginService>().updateDisplayName(nameValue);
                               Loader.hide();
                               Navigator.of(context).pop();
                             }

@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:todo_flutter_app_firebase/src/core/ui/theme/app_theme_extensions.dart';
 import 'package:validatorless/validatorless.dart';
 
-import '../../../core/notifier/app_listener_notifier.dart';
-import '../../../core/validators/validators.dart';
-import '../../../core/widgets/TextFormField/textformfield_widget.dart';
-import '../../../core/widgets/logo/app_logo_login_widget.dart';
+import '../../../../core/notifier/app_listener_notifier.dart';
+import '../../../../core/validators/validators.dart';
+import '../../../../core/widgets/TextFormField/textformfield_widget.dart';
+import '../../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/register_controller.dart';
 
 class RegisterPage extends StatefulWidget {

@@ -1,6 +1,6 @@
 
-import '../../../../core/notifier/app_change_notifier.dart';
-import '../../../../domain/services/tasks/tasks_services.dart';
+import '../../../../../core/notifier/app_change_notifier.dart';
+import '../../../../../domain/services/tasks/tasks_services.dart';
 
 class TaskCreateController extends AppChangeNotifier {
   TasksServices _tasksServices;

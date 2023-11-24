@@ -8,11 +8,11 @@ import '../navigator/todo_list_navigator.dart';
 
 class AuthProvider extends ChangeNotifier {
   final FirebaseAuth _firebaseAuth;
-  final UserService _userService;
+  final LoginService _userService;
 
   AuthProvider({
     required FirebaseAuth firebaseAuth,
-    required UserService userService,
+    required LoginService userService,
   })  : _firebaseAuth = firebaseAuth,
         _userService = userService;
 

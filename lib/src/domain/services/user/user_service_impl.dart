@@ -1,29 +1,29 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../repositories/user/user_repository.dart';
+import '../../repositories/login/login_repository.dart';
 import './user_service.dart';
 
-class UserServiceImpl implements UserService {
-  final UserRepository _userRepository;
+class LoginServiceImpl implements LoginService {
+  final LoginRepository _loginRepository;
 
-  UserServiceImpl({
-    required UserRepository userRepository,
-  }) : _userRepository = userRepository;
-
-  @override
-  Future<User?> register(String email, String password) => _userRepository.register(email, password);
+  LoginServiceImpl({
+    required LoginRepository loginRepository,
+  }) : _loginRepository = loginRepository;
 
   @override
-  Future<User?> login(String email, String password) => _userRepository.login(email, password);
+  Future<User?> register(String email, String password) => _loginRepository.register(email, password);
 
   @override
-  Future<void> forgotPassword(String email) => _userRepository.forgotPassword(email);
+  Future<User?> login(String email, String password) => _loginRepository.login(email, password);
 
   @override
-  Future<User?> googleLogin() => _userRepository.googleLogin();
+  Future<void> forgotPassword(String email) => _loginRepository.forgotPassword(email);
 
   @override
-  Future<void> logout() => _userRepository.logout();
+  Future<User?> googleLogin() => _loginRepository.googleLogin();
 
   @override
-  Future<void> updateDisplayName(String name) => _userRepository.updateDisplayName(name);
+  Future<void> logout() => _loginRepository.logout();
+
+  @override
+  Future<void> updateDisplayName(String name) => _loginRepository.updateDisplayName(name);
 }

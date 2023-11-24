@@ -1,13 +1,13 @@
 import 'package:provider/provider.dart';
 
-import '../todo_list_module.dart';
-import '../../../ui/pages/login/controller/login_controller.dart';
-import '../../../ui/pages/login/login_page.dart';
-import '../../../ui/pages/register/controller/register_controller.dart';
-import '../../../ui/pages/register/register_page.dart';
+import '../../../core/modules/todo_list_module.dart';
+import '../../../ui/pages/modules/login/controller/login_controller.dart';
+import '../../../ui/pages/modules/login/login_page.dart';
+import '../../../ui/pages/modules/register/controller/register_controller.dart';
+import '../../../ui/pages/modules/register/register_page.dart';
 
-class UserModule extends TodoListModule {
-  UserModule()
+class AuthModule extends TodoListModule {
+  AuthModule()
       : super(
           bindings: [
             ChangeNotifierProvider(

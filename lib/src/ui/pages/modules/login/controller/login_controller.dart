@@ -1,16 +1,13 @@
-
-
-
-import '../../../../core/exception/app_auth_exception.dart';
-import '../../../../core/notifier/app_change_notifier.dart';
-import '../../../../domain/services/user/user_service.dart';
+import '../../../../../core/exception/app_auth_exception.dart';
+import '../../../../../core/notifier/app_change_notifier.dart';
+import '../../../../../domain/services/user/user_service.dart';
 
 class LoginController extends AppChangeNotifier {
-  final UserService _userService;
+  final LoginService _userService;
   
   String? infoMessage;
 
-  LoginController({required UserService userService}) : _userService = userService;
+  LoginController({required LoginService userService}) : _userService = userService;
 
   bool get hasInfo => infoMessage != null;
 
