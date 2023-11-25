@@ -8,10 +8,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../../core/exception/app_auth_exception.dart';
 import 'login_repository.dart';
 
-class UserRepositoryImpl implements LoginRepository {
+class LoginRepositoryImpl implements LoginRepository {
  final FirebaseAuth _firebaseAuth;
 
-  UserRepositoryImpl({required FirebaseAuth firebaseAuth}) : _firebaseAuth = firebaseAuth;
+  LoginRepositoryImpl({required FirebaseAuth firebaseAuth}) : _firebaseAuth = firebaseAuth;
 
   @override
   Future<User?> register(String email, String password) async {
@@ -28,7 +28,7 @@ class UserRepositoryImpl implements LoginRepository {
         if (loginTypes.contains('password')) {
           throw AppAuthException(message: 'E-mail já utilizado, por favor escolha outro e-mail');
         } else {
-          throw AppAuthException(message: 'Você se cadastrou no TodoList pleo Google, por favor utilize ele para entrar !!!');
+          throw AppAuthException(message: 'Você se cadastrou no APP pelo Google, por favor utilize ele para entrar !!!');
         }
       } else {
         throw AppAuthException(message: e.message ?? 'Erro ao registrar usuário');

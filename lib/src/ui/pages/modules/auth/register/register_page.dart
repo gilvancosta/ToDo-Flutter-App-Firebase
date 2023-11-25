@@ -3,10 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:todo_flutter_app_firebase/src/core/ui/theme/app_theme_extensions.dart';
 import 'package:validatorless/validatorless.dart';
 
-import '../../../../core/notifier/app_listener_notifier.dart';
-import '../../../../core/validators/validators.dart';
-import '../../../../core/widgets/TextFormField/my_textformfield.dart';
-import '../../../../core/widgets/logo/app_logo_login_widget.dart';
+import '../../../../../core/notifier/app_listener_notifier.dart';
+import '../../../../../core/validators/validators.dart';
+
+import '../../../../../core/widgets/TextFormField/my_textformfield general.dart';
+import '../../../../../core/widgets/TextFormField/my_textformfield_email.dart';
+import '../../../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/register_controller.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -115,18 +117,15 @@ class _RegisterPageState extends State<RegisterPage> {
               key: _formkey,
               child: Column(
                 children: [
-                  My_TextFormField(
-                    label: 'E-Mail',
+                  MyTextFormFieldEmail(
+              
                     controller: _emailEC,
-                    validator: Validatorless.multiple([
-                      Validatorless.required('E-mail obrigatório'),
-                      Validatorless.email('E-mail inválido')
-                    ]),
+                 
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  My_TextFormField(
+                  MyTextFormFieldGeneral(
                     label: 'Senha',
                     obscureText: true,
                     controller: _passwordEC,
@@ -139,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  My_TextFormField(
+                  MyTextFormFieldGeneral(
                     label: 'Confirmar Senha',
                     obscureText: true,
                     controller: _confirmPasswordEC,
@@ -186,4 +185,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+}
+
+class My_TextFormField_General {
 }

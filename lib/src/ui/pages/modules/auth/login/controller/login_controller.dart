@@ -1,6 +1,6 @@
-import '../../../../../core/exception/app_auth_exception.dart';
-import '../../../../../core/notifier/app_change_notifier.dart';
-import '../../../../../domain/services/user/user_service.dart';
+import '../../../../../../core/exception/app_auth_exception.dart';
+import '../../../../../../core/notifier/app_change_notifier.dart';
+import '../../../../../../domain/services/user/user_service.dart';
 
 class LoginController extends AppChangeNotifier {
   final LoginService _userService;

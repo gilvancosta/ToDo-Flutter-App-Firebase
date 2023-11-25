@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:validatorless/validatorless.dart';
 
-import '../../../../core/notifier/app_listener_notifier.dart';
-import '../../../../core/ui/theme/app_messages.dart';
-import '../../../../core/widgets/TextFormField/my_textformfield.dart';
-import '../../../../core/widgets/logo/app_logo_login_widget.dart';
+import '../../../../../core/notifier/app_listener_notifier.dart';
+import '../../../../../core/ui/theme/app_messages.dart';
+import '../../../../../core/widgets/TextFormField/my_textformfield general.dart';
+
+import '../../../../../core/widgets/TextFormField/my_textformfield_email.dart';
+import '../../../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -71,17 +73,14 @@ class _LoginPageState extends State<LoginPage> {
                           key: _formKey,
                           child: Column(
                             children: [
-                              My_TextFormField(
-                                label: 'E-Mail',
+                              MyTextFormFieldEmail(
+                          
                                 controller: _emailEC,
-                                focusNode: _emailFocus,
-                                validator: Validatorless.multiple([
-                                  Validatorless.required('E-mail obrigatório'),
-                                  Validatorless.email('E-mail inválido'),
-                                ]),
+                                focusNode: _emailFocus
+   
                               ),
                               const SizedBox(height: 20),
-                              My_TextFormField(
+                              MyTextFormFieldGeneral(
                                 label: 'Senha',
                                 obscureText: true,
                                 controller: _passwordEC,

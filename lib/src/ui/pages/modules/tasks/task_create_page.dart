@@ -4,7 +4,7 @@ import 'package:validatorless/validatorless.dart';
 
 import '../../../../core/notifier/app_listener_notifier.dart';
 
-import '../../../../core/widgets/TextFormField/my_textformfield.dart';
+import '../../../../core/widgets/TextFormField/my_textformfield general.dart';
 import 'controller/task_create_controller.dart';
 import 'widgets/calendar_button.dart';
 
@@ -94,7 +94,7 @@ class _TaskCreatePageState extends State<TaskCreatePage> {
               const SizedBox(
                 height: 30,
               ),
-              My_TextFormField(
+              MyTextFormFieldGeneral(
                 controller: _descriptionEC,
                 validator: Validatorless.required('Descrição é obrigatória'),
                 label: '',

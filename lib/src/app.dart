@@ -6,8 +6,8 @@ import 'app_widget.dart';
 
 import 'data/datasource/sqlite/sqlite_connection_factory.dart';
 
-import 'domain/repositories/login/login_repository.dart';
-import 'domain/repositories/login/login_repository_impl.dart';
+import 'domain/repositories/auth/login_repository.dart';
+import 'domain/repositories/auth/login_repository_impl.dart';
 
 import 'domain/services/user/user_service.dart';
 import 'domain/services/user/user_service_impl.dart';
