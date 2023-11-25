@@ -5,7 +5,7 @@ import 'package:validatorless/validatorless.dart';
 
 import '../../../../core/notifier/app_listener_notifier.dart';
 import '../../../../core/validators/validators.dart';
-import '../../../../core/widgets/TextFormField/textformfield_widget.dart';
+import '../../../../core/widgets/TextFormField/my_textformfield.dart';
 import '../../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/register_controller.dart';
 
@@ -115,7 +115,7 @@ class _RegisterPageState extends State<RegisterPage> {
               key: _formkey,
               child: Column(
                 children: [
-                  TextFormFieldWidget(
+                  My_TextFormField(
                     label: 'E-Mail',
                     controller: _emailEC,
                     validator: Validatorless.multiple([
@@ -126,7 +126,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  TextFormFieldWidget(
+                  My_TextFormField(
                     label: 'Senha',
                     obscureText: true,
                     controller: _passwordEC,
@@ -139,7 +139,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  TextFormFieldWidget(
+                  My_TextFormField(
                     label: 'Confirmar Senha',
                     obscureText: true,
                     controller: _confirmPasswordEC,

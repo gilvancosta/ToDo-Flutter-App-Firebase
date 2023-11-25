@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../ui/theme/app_icons.dart';
 
 
-class TextFormFieldWidget extends StatelessWidget {
+class My_TextFormField extends StatelessWidget {
   final String label;
   final IconButton? suffixIconButton;
   final bool obscureText;
@@ -12,7 +12,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   final FocusNode? focusNode;
 
-  TextFormFieldWidget({
+  My_TextFormField({
     Key? key,
     required this.label,
     this.suffixIconButton,

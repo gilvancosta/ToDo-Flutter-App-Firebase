@@ -6,7 +6,7 @@ import 'package:validatorless/validatorless.dart';
 
 import '../../../../core/notifier/app_listener_notifier.dart';
 import '../../../../core/ui/theme/app_messages.dart';
-import '../../../../core/widgets/TextFormField/textformfield_widget.dart';
+import '../../../../core/widgets/TextFormField/my_textformfield.dart';
 import '../../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/login_controller.dart';
 
@@ -48,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
       //  appBar: AppBar(
       //     title: const Text('Login page'),
       //   ),
+      //O LayoutBuilder melhorar a responsividade pois tem uma melhor noção do tamanho da tela
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -70,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                           key: _formKey,
                           child: Column(
                             children: [
-                              TextFormFieldWidget(
+                              My_TextFormField(
                                 label: 'E-Mail',
                                 controller: _emailEC,
                                 focusNode: _emailFocus,
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ]),
                               ),
                               const SizedBox(height: 20),
-                              TextFormFieldWidget(
+                              My_TextFormField(
                                 label: 'Senha',
                                 obscureText: true,
                                 controller: _passwordEC,
@@ -158,6 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                               const SizedBox(
                                 height: 30,
                               ),
+                              // O SignInButton (package) É um widget do pacote flutter_signin_button
                               SignInButton(
                                 Buttons.Google,
                                 text: 'Continue com Google',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'core/ui/theme/app_themev2.dart';
+import 'core/ui/theme/app_theme.dart';
 import 'data/datasource/sqlite/sqlite_adm_connection.dart';
 
 import 'domain/modules/auth/auth_module.dart';
@@ -41,7 +41,7 @@ class _MyAppState extends State<AppWidget> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Todo List',
-      theme: MyAppThemeV2.theme,
+      theme: MyAppTheme.theme,
       // initialRoute: '/login',
       routes: {
         ...AuthModule().routers,

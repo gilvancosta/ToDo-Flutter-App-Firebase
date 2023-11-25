@@ -3,12 +3,10 @@ import 'package:todo_flutter_app_firebase/src/core/ui/theme/app_theme_extensions
 import 'package:validatorless/validatorless.dart';
 
 import '../../../../core/notifier/app_listener_notifier.dart';
-import '../../../../core/widgets/TextFormField/textformfield_widget.dart';
+
+import '../../../../core/widgets/TextFormField/my_textformfield.dart';
 import 'controller/task_create_controller.dart';
 import 'widgets/calendar_button.dart';
-
-
-
 
 class TaskCreatePage extends StatefulWidget {
   final TaskCreateController _controller;
@@ -96,7 +94,7 @@ class _TaskCreatePageState extends State<TaskCreatePage> {
               const SizedBox(
                 height: 30,
               ),
-              TextFormFieldWidget(
+              My_TextFormField(
                 controller: _descriptionEC,
                 validator: Validatorless.required('Descrição é obrigatória'),
                 label: '',

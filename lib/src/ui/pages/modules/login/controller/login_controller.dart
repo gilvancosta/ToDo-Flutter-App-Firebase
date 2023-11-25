@@ -34,7 +34,7 @@ class LoginController extends AppChangeNotifier {
     }
   }
 
-   Future<void> login(String email, String password) async {
+  Future<void> login(String email, String password) async {
     try {
       showLoadingAndResetState();
       infoMessage = null;
