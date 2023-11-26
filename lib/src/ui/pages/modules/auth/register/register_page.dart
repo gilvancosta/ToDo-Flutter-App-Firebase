@@ -40,7 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
         AppListenerNotifier(changeNotifier: context.read<RegisterController>());
     defaultListner.listener(
       context: context,
-      sucessVoidCallback: (notifier, listenerInstance) {
+      successVoidCallback: (notifier, listenerInstance) {
         listenerInstance.dispose();
         Navigator.of(context).pop();
       },

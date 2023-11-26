@@ -32,7 +32,7 @@ class _TabsScreenState extends State<HomePage> {
     super.initState();
     AppListenerNotifier(changeNotifier: widget.homeController).listener(
         context: context,
-        sucessVoidCallback: (notifier, listenerInstance) {
+        successVoidCallback: (notifier, listenerInstance) {
           listenerInstance.dispose();
         });
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {

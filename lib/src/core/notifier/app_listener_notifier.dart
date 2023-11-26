@@ -12,7 +12,7 @@ class AppListenerNotifier {
 
   void listener({
     required BuildContext context,
-    required SucessVoidCallback sucessVoidCallback,
+    required SucessVoidCallback successVoidCallback,
     EverVoidCallback? everVoidCallback,
     ErrorVoidCallback? errorCallback,
   }) {
@@ -34,7 +34,7 @@ class AppListenerNotifier {
         AppMessages.of(context).showError(changeNotifier.error ?? 'Erro interno');
       } else if (changeNotifier.isSuccess) {
        // if (sucessVoidCallback != null) {
-          sucessVoidCallback(changeNotifier, this);
+          successVoidCallback(changeNotifier, this);
        // }
       }
     });

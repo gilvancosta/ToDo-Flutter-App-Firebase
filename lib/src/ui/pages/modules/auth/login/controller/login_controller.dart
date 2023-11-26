@@ -11,28 +11,6 @@ class LoginController extends AppChangeNotifier {
 
   bool get hasInfo => infoMessage != null;
 
-  Future<void> googleLogin() async {
-    try {
-     //await
-      showLoadingAndResetState();
-      infoMessage = null;
-      notifyListeners();
-      final user = await _authService.googleLogin();
-
-      if (user != null) {
-        success();
-      } else {
-        _authService.logout();
-        setError('Erro ao realizar login com Google');
-      }
-    } on AppAuthException catch (e) {
-      _authService.logout();
-      setError(e.message);
-    } finally {
-      hideLoading();
-      notifyListeners();
-    }
-  }
 
   Future<void> login(String email, String password) async {
     try {
@@ -70,4 +48,29 @@ class LoginController extends AppChangeNotifier {
       notifyListeners();
     }
   }
+
+  Future<void> googleLogin() async {
+    try {
+     //await
+      showLoadingAndResetState();
+      infoMessage = null;
+      notifyListeners();
+      final user = await _authService.googleLogin();
+
+      if (user != null) {
+        success();
+      } else {
+        _authService.logout();
+        setError('Erro ao realizar login com Google');
+      }
+    } on AppAuthException catch (e) {
+      _authService.logout();
+      setError(e.message);
+    } finally {
+      hideLoading();
+      notifyListeners();
+    }
+  }
+
+
 }

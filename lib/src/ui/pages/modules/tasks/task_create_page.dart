@@ -32,7 +32,7 @@ class _TaskCreatePageState extends State<TaskCreatePage> {
       changeNotifier: widget._controller,
     ).listener(
         context: context,
-        sucessVoidCallback: (notifier, listenerIstance) {
+        successVoidCallback: (notifier, listenerIstance) {
           listenerIstance.dispose();
           Navigator.pop(context);
         });

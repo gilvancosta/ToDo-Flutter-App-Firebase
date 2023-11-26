@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                 }
               }
             },
-            sucessVoidCallback: (notifier, listenerNotifier) {
+            successVoidCallback: (notifier, listenerNotifier) {
               print('Login efetuado com sucesso !!!!!');
             });
   }
@@ -76,9 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                               MyTextFormFieldEmail(
                                   controller: _emailEC, focusNode: _emailFocus),
                               const SizedBox(height: 20),
-
                               // password textfield
-
                               MyTextFormFieldPassword(
                                 controller: _passwordEC,
                               ),
@@ -164,6 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                                   borderSide: BorderSide.none,
                                 ),
                                 onPressed: () {
+                                  
                                   context.read<LoginController>().googleLogin();
                                 },
                               ),
