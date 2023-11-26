@@ -24,7 +24,7 @@ class HomeDrawer extends StatelessWidget {
                 BoxDecoration(color: context.primaryColor.withAlpha(70)),
             child: Row(
               children: [
-                Selector<AuthProvider, String>(
+                Selector<AuthProvider01, String>(
                   selector: (context, authProvider) {
                     return authProvider.user?.photoURL ??
                         'https://st2.depositphotos.com/4111759/12123/v/450/depositphotos_121231710-stock-illustration-male-default-avatar-profile-gray.jpg';
@@ -39,7 +39,7 @@ class HomeDrawer extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Selector<AuthProvider, String>(
+                    child: Selector<AuthProvider01, String>(
                       selector: (context, authProvider) {
                         return authProvider.user?.displayName ??
                             'Não informado';
@@ -100,7 +100,7 @@ class HomeDrawer extends StatelessWidget {
           ListTile(
             onTap: () {
               context.read<TasksRepository>().deleteAllTasks();
-              context.read<AuthProvider>().logout();
+              context.read<AuthProvider01>().logout();
             },
             title: const Text('Sair'),
           ),

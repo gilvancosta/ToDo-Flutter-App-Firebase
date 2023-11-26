@@ -13,7 +13,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Selector<AuthProvider, String>(
+      child: Selector<AuthProvider01, String>(
           selector: (context, authProvider) => authProvider.user?.displayName ?? 'Não Informado',
           builder: (_, value, __) {
             return Text(

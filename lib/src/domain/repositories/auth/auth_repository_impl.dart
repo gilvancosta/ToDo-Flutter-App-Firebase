@@ -104,7 +104,7 @@ class AuthRepositoryImpl implements AuthRepository {
         if (loginMethods.contains('password')) {
           throw AppAuthException(
               message:
-                  'Você utilizou o e-mail para cadastro no TodoList, caso tenha esquecido sua senha por favor clique no link esqueci minha senha');
+                  'Você utilizou o e-mail antes para cadastro na APP, caso tenha esquecido sua senha por favor clique no link esqueci minha senha');
         } else {
           final googleAuth = await googleUser.authentication;
           final firebaseCredencial = GoogleAuthProvider.credential(
@@ -120,7 +120,7 @@ class AuthRepositoryImpl implements AuthRepository {
       if (e.code == 'account-exists-with-different-credential') {
         throw AppAuthException(
             message:
-                'Login inválido voce se registrou no TodoList com os seguintes provedores: ${loginMethods?.join(',')}');
+                'Login inválido voce se registrou no APP com os seguintes provedores: ${loginMethods?.join(',')}');
       } else {
         throw AppAuthException(message: 'Erro ao realizar login');
       }

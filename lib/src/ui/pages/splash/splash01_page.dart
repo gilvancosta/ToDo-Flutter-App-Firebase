@@ -18,13 +18,20 @@ class Splash01Page extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/login');
             },
-            child: const Text('Login'),
+            child: const Text(
+              'Login',
+              style: TextStyle(fontSize: 20),
+            ),
           ),
+          SizedBox(height: 20),
           InkWell(
             onTap: () {
               Navigator.pushNamed(context, '/register');
             },
-            child: const Text('Register'),
+            child: const Text(
+              'Register',
+              style: TextStyle(fontSize: 20),
+            ),
           ),
         ],
       )),

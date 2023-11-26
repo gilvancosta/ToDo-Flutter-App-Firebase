@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'app_widget.dart';
 
+import 'core/auth/auth_provider.dart';
 import 'data/datasource/sqlite/sqlite_connection_factory.dart';
 
 import 'domain/repositories/auth/auth_repository.dart';
@@ -36,7 +37,13 @@ class MyApp extends StatelessWidget {
         Provider<AuthService>(
             create: (context) =>
                 LoginServiceImpl(loginRepository: context.read())),
-        //  ChangeNotifierProvider(create: (context) => AuthProvider(firebaseAuth: context.read(), userService: context.read())..loadListener(), lazy: false)
+        ChangeNotifierProvider<AuthProvider01>(
+           lazy: false,
+          create: (context) => AuthProvider01(
+              firebaseAuth: context.read(), userService: context.read())
+            ..loadListener(),
+         
+        ),
       ],
       child: AppWidget(title: title),
     );
