@@ -6,11 +6,11 @@ import 'app_widget.dart';
 
 import 'data/datasource/sqlite/sqlite_connection_factory.dart';
 
-import 'domain/repositories/auth/login_repository.dart';
-import 'domain/repositories/auth/login_repository_impl.dart';
+import 'domain/repositories/auth/auth_repository.dart';
+import 'domain/repositories/auth/auth_repository_impl.dart';
 
-import 'domain/services/user/user_service.dart';
-import 'domain/services/user/user_service_impl.dart';
+import 'domain/services/auth/auth_service.dart';
+import 'domain/services/auth/auth_service_impl.dart';
 
 class MyApp extends StatelessWidget {
   final String title;
@@ -30,10 +30,10 @@ class MyApp extends StatelessWidget {
             create: (_) => SqliteConnectionFactory(),
             lazy:
                 false), // o lazy false faz com que o provider seja criado antes de qualquer coisa
-        Provider<LoginRepository>(
+        Provider<AuthRepository>(
             create: (context) =>
-                LoginRepositoryImpl(firebaseAuth: context.read())),
-        Provider<LoginService>(
+                AuthRepositoryImpl(firebaseAuth: context.read())),
+        Provider<AuthService>(
             create: (context) =>
                 LoginServiceImpl(loginRepository: context.read())),
         //  ChangeNotifierProvider(create: (context) => AuthProvider(firebaseAuth: context.read(), userService: context.read())..loadListener(), lazy: false)

@@ -1,4 +1,3 @@
-
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
@@ -8,9 +7,7 @@ import 'package:todo_flutter_app_firebase/src/core/ui/theme/app_theme_extensions
 import '../../../../core/auth/auth_provider.dart';
 import '../../../../core/ui/theme/app_messages.dart';
 import '../../../../domain/repositories/tasks/tasks_repository.dart';
-import '../../../../domain/services/user/user_service.dart';
-
-
+import '../../../../domain/services/auth/auth_service.dart';
 
 class HomeDrawer extends StatelessWidget {
   final nameVN = ValueNotifier<String>('');
@@ -23,12 +20,14 @@ class HomeDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(color: context.primaryColor.withAlpha(70)),
+            decoration:
+                BoxDecoration(color: context.primaryColor.withAlpha(70)),
             child: Row(
               children: [
                 Selector<AuthProvider, String>(
                   selector: (context, authProvider) {
-                    return authProvider.user?.photoURL ?? 'https://st2.depositphotos.com/4111759/12123/v/450/depositphotos_121231710-stock-illustration-male-default-avatar-profile-gray.jpg';
+                    return authProvider.user?.photoURL ??
+                        'https://st2.depositphotos.com/4111759/12123/v/450/depositphotos_121231710-stock-illustration-male-default-avatar-profile-gray.jpg';
                   },
                   builder: (_, value, __) {
                     return CircleAvatar(
@@ -42,7 +41,8 @@ class HomeDrawer extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Selector<AuthProvider, String>(
                       selector: (context, authProvider) {
-                        return authProvider.user?.displayName ?? 'Não informado';
+                        return authProvider.user?.displayName ??
+                            'Não informado';
                       },
                       builder: (_, value, __) {
                         return Text(
@@ -78,10 +78,13 @@ class HomeDrawer extends StatelessWidget {
                           onPressed: () {
                             final nameValue = nameVN.value;
                             if (nameValue.isEmpty) {
-                              AppMessages.of(context).showError('Por favor inserir um Nome, para atualizar o registro');
+                              AppMessages.of(context).showError(
+                                  'Por favor inserir um Nome, para atualizar o registro');
                             } else {
                               Loader.show(context);
-                              context.read<LoginService>().updateDisplayName(nameValue);
+                              context
+                                  .read<AuthService>()
+                                  .updateDisplayName(nameValue);
                               Loader.hide();
                               Navigator.of(context).pop();
                             }

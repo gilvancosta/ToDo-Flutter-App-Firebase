@@ -6,12 +6,13 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../core/exception/app_auth_exception.dart';
-import 'login_repository.dart';
+import 'auth_repository.dart';
 
-class LoginRepositoryImpl implements LoginRepository {
+
+class AuthRepositoryImpl implements AuthRepository {
  final FirebaseAuth _firebaseAuth;
 
-  LoginRepositoryImpl({required FirebaseAuth firebaseAuth}) : _firebaseAuth = firebaseAuth;
+  AuthRepositoryImpl({required FirebaseAuth firebaseAuth}) : _firebaseAuth = firebaseAuth;
 
   @override
   Future<User?> register(String email, String password) async {

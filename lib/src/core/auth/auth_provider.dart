@@ -1,18 +1,16 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../domain/services/user/user_service.dart';
+import '../../domain/services/auth/auth_service.dart';
 import '../navigator/todo_list_navigator.dart';
-
 
 class AuthProvider extends ChangeNotifier {
   final FirebaseAuth _firebaseAuth;
-  final LoginService _userService;
+  final AuthService _userService;
 
   AuthProvider({
     required FirebaseAuth firebaseAuth,
-    required LoginService userService,
+    required AuthService userService,
   })  : _firebaseAuth = firebaseAuth,
         _userService = userService;
 
@@ -23,11 +21,10 @@ class AuthProvider extends ChangeNotifier {
     _firebaseAuth.userChanges().listen((_) => notifyListeners());
     _firebaseAuth.authStateChanges().listen((user) {
       if (user != null) {
-        TodoListNavigator.to.
-          pushNamedAndRemoveUntil('/home', (route) => false);
+        TodoListNavigator.to.pushNamedAndRemoveUntil('/home', (route) => false);
       } else {
-        TodoListNavigator.to.
-          pushNamedAndRemoveUntil('/login', (route) => false);
+        TodoListNavigator.to
+            .pushNamedAndRemoveUntil('/login', (route) => false);
       }
     });
   }

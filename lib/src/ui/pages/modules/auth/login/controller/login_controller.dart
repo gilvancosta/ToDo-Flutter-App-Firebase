@@ -1,13 +1,13 @@
 import '../../../../../../core/exception/app_auth_exception.dart';
 import '../../../../../../core/notifier/app_change_notifier.dart';
-import '../../../../../../domain/services/user/user_service.dart';
+import '../../../../../../domain/services/auth/auth_service.dart';
 
 class LoginController extends AppChangeNotifier {
-  final LoginService _userService;
+  final AuthService _authService;
   
   String? infoMessage;
 
-  LoginController({required LoginService userService}) : _userService = userService;
+  LoginController({required AuthService userService}) : _authService = userService;
 
   bool get hasInfo => infoMessage != null;
 
@@ -17,16 +17,16 @@ class LoginController extends AppChangeNotifier {
       showLoadingAndResetState();
       infoMessage = null;
       notifyListeners();
-      final user = await _userService.googleLogin();
+      final user = await _authService.googleLogin();
 
       if (user != null) {
         success();
       } else {
-        _userService.logout();
+        _authService.logout();
         setError('Erro ao realizar login com Google');
       }
     } on AppAuthException catch (e) {
-      _userService.logout();
+      _authService.logout();
       setError(e.message);
     } finally {
       hideLoading();
@@ -39,7 +39,7 @@ class LoginController extends AppChangeNotifier {
       showLoadingAndResetState();
       infoMessage = null;
       notifyListeners();
-      final user = await _userService.login(email, password);
+      final user = await _authService.login(email, password);
 
       if (user != null) {
         success();
@@ -59,7 +59,7 @@ class LoginController extends AppChangeNotifier {
       showLoadingAndResetState();
       infoMessage = null;
       notifyListeners();
-      await _userService.forgotPassword(email);
+      await _authService.forgotPassword(email);
       infoMessage = 'Reset de senha enviado para seu e-mail';
     } on AppAuthException catch (e) {
       setError(e.message);
