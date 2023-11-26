@@ -33,15 +33,15 @@ class MyTextFormFieldEmail extends StatelessWidget {
           borderSide: const BorderSide(color: Colors.red),
         ),
         isDense: true,
-        suffixIcon: IconButton(
-          icon: const Icon(
-            AppIcons.eye,
-            size: 15,
-          ),
-          onPressed: () {
-            // obscureTextVN.value = !obscureTextValue;
-          },
-        ),
+        //   suffixIcon: IconButton(//
+        //   icon: const Icon(
+        //     AppIcons.eye,
+        //     size: 15,
+        //   ),
+        //   onPressed: () {
+        // obscureTextVN.value = !obscureTextValue;
+        //  },
+        // ),
       ),
       // obscureText: true,
     );

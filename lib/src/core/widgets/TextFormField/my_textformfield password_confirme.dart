@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:validatorless/validatorless.dart';
 
 import '../../ui/theme/app_icons.dart';
+import '../../validators/validators.dart';
 
 
-class My_TextFormField extends StatelessWidget {
-  final String label;
+class MyTextFormFieldPasswordConfirme extends StatelessWidget {
+ final  TextEditingController? passwordEC;
   final IconButton? suffixIconButton;
   final bool obscureText;
   final ValueNotifier<bool> obscureTextVN;
   final TextEditingController? controller;
-  final FormFieldValidator<String>? validator;
+ //final FormFieldValidator<String>? validator;
   final FocusNode? focusNode;
 
-  My_TextFormField({
+  MyTextFormFieldPasswordConfirme({
     Key? key,
-    required this.label,
+    this.passwordEC,
     this.suffixIconButton,
     this.obscureText = false,
     this.controller,
-    this.validator,
+ 
     this.focusNode,
   })  : assert(
           obscureText == true ? suffixIconButton == null : true,
@@ -34,10 +36,14 @@ class My_TextFormField extends StatelessWidget {
       builder: (_, obscureTextValue, child) {
         return TextFormField(
           controller: controller,
-          validator: validator,
+          validator: Validatorless.multiple([
+                      Validatorless.required('Senha obrigatória'),
+                      Validators.compare(
+                          passwordEC, 'Confirmação de senha é diferente'),
+                    ]),
           focusNode: focusNode,
           decoration: InputDecoration(
-            labelText: label,
+            labelText: 'Confirmar Senha',
             labelStyle: const TextStyle(fontSize: 15, color: Colors.black),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),

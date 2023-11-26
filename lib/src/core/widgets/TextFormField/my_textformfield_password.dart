@@ -1,30 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:validatorless/validatorless.dart';
 
 import '../../ui/theme/app_icons.dart';
 
 
-class My_TextFormField extends StatelessWidget {
-  final String label;
-  final IconButton? suffixIconButton;
+class MyTextFormFieldPassword extends StatelessWidget {
+
   final bool obscureText;
   final ValueNotifier<bool> obscureTextVN;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
   final FocusNode? focusNode;
 
-  My_TextFormField({
-    Key? key,
-    required this.label,
-    this.suffixIconButton,
-    this.obscureText = false,
+  MyTextFormFieldPassword({
+    Key? key, 
+    this.obscureText = true,
     this.controller,
     this.validator,
     this.focusNode,
-  })  : assert(
-          obscureText == true ? suffixIconButton == null : true,
-          'ObscureText não pode ser enviado em conjunto com suffixIconButtom',
-        ),
-        obscureTextVN = ValueNotifier(obscureText),
+  })  : obscureTextVN = ValueNotifier(obscureText),
         super(key: key);
 
   @override
@@ -34,10 +28,14 @@ class My_TextFormField extends StatelessWidget {
       builder: (_, obscureTextValue, child) {
         return TextFormField(
           controller: controller,
-          validator: validator,
+          validator:  Validatorless.multiple([
+                      Validatorless.required('Senha obrigatória'),
+                      Validatorless.min(
+                          6, 'Senha deve ter pelo menos 6 caracteres'),
+                    ]),
           focusNode: focusNode,
           decoration: InputDecoration(
-            labelText: label,
+            labelText:  'Password',
             labelStyle: const TextStyle(fontSize: 15, color: Colors.black),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
@@ -47,9 +45,7 @@ class My_TextFormField extends StatelessWidget {
               borderSide: const BorderSide(color: Colors.red),
             ),
             isDense: true,
-            suffixIcon: suffixIconButton ??
-                (obscureText == true
-                    ? IconButton(
+            suffixIcon:  IconButton(
                         icon: Icon(
                           !obscureTextValue ? AppIcons.eye_slash : AppIcons.eye,
                           size: 15,
@@ -57,8 +53,7 @@ class My_TextFormField extends StatelessWidget {
                         onPressed: () {
                           obscureTextVN.value = !obscureTextValue;
                         },
-                      )
-                    : null),
+                      ),
           ),
           obscureText: obscureTextValue,
         );

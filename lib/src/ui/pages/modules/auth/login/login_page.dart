@@ -6,9 +6,9 @@ import 'package:validatorless/validatorless.dart';
 
 import '../../../../../core/notifier/app_listener_notifier.dart';
 import '../../../../../core/ui/theme/app_messages.dart';
-import '../../../../../core/widgets/TextFormField/my_textformfield general.dart';
 
 import '../../../../../core/widgets/TextFormField/my_textformfield_email.dart';
+import '../../../../../core/widgets/TextFormField/my_textformfield_password.dart';
 import '../../../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/login_controller.dart';
 
@@ -47,10 +47,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //  appBar: AppBar(
-      //     title: const Text('Login page'),
-      //   ),
-      //O LayoutBuilder melhorar a responsividade pois tem uma melhor noção do tamanho da tela
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -65,7 +61,10 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const SizedBox(height: 20),
+                      // logo
                       const AppLogoLoginWidget(),
+
+                      // Form
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 40, vertical: 20),
@@ -73,28 +72,22 @@ class _LoginPageState extends State<LoginPage> {
                           key: _formKey,
                           child: Column(
                             children: [
+                              // email textfield
                               MyTextFormFieldEmail(
-                          
-                                controller: _emailEC,
-                                focusNode: _emailFocus
-   
-                              ),
+                                  controller: _emailEC, focusNode: _emailFocus),
                               const SizedBox(height: 20),
-                              MyTextFormFieldGeneral(
-                                label: 'Senha',
-                                obscureText: true,
+
+                              // password textfield
+
+                              MyTextFormFieldPassword(
                                 controller: _passwordEC,
-                                validator: Validatorless.multiple([
-                                  Validatorless.required('Senha obrigatória'),
-                                  Validatorless.min(6,
-                                      'Senha deve ter pelo menos 6 caracteres'),
-                                ]),
                               ),
                               const SizedBox(height: 10),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
+                                  // forgot password?
                                   TextButton(
                                     onPressed: () {
                                       if (_emailEC.text.isNotEmpty) {
@@ -110,6 +103,8 @@ class _LoginPageState extends State<LoginPage> {
                                     },
                                     child: const Text('Forgot password?'),
                                   ),
+
+                                  // Login Buttom
                                   ElevatedButton(
                                     onPressed: () {
                                       final formValid =
@@ -158,7 +153,8 @@ class _LoginPageState extends State<LoginPage> {
                               const SizedBox(
                                 height: 30,
                               ),
-                              // O SignInButton (package) É um widget do pacote flutter_signin_button
+                              // sign in button Google
+                              // O SignInButton  (package) É um widget do pacote flutter_signin_button
                               SignInButton(
                                 Buttons.Google,
                                 text: 'Continue com Google',
@@ -171,6 +167,8 @@ class _LoginPageState extends State<LoginPage> {
                                   context.read<LoginController>().googleLogin();
                                 },
                               ),
+
+                              // or continue with
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

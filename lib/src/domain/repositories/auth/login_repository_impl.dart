@@ -21,7 +21,7 @@ class LoginRepositoryImpl implements LoginRepository {
     } on FirebaseAuthException catch (e, s) {
       print(e);
       print(s);
-      // account-exists-with-different-credentia
+      // account-exists-with-different-credentiaL
       // email-already-exists
       if (e.code == 'email-already-in-use') {
         final loginTypes = await _firebaseAuth.fetchSignInMethodsForEmail(email);

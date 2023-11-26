@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_flutter_app_firebase/src/core/ui/theme/app_theme_extensions.dart';
-import 'package:validatorless/validatorless.dart';
 
 import '../../../../../core/notifier/app_listener_notifier.dart';
-import '../../../../../core/validators/validators.dart';
 
-import '../../../../../core/widgets/TextFormField/my_textformfield general.dart';
+import '../../../../../core/widgets/TextFormField/my_textformfield password_confirme.dart';
 import '../../../../../core/widgets/TextFormField/my_textformfield_email.dart';
+import '../../../../../core/widgets/TextFormField/my_textformfield_password.dart';
 import '../../../../../core/widgets/logo/app_logo_login_widget.dart';
 import 'controller/register_controller.dart';
 
@@ -118,35 +117,20 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Column(
                 children: [
                   MyTextFormFieldEmail(
-              
                     controller: _emailEC,
-                 
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  MyTextFormFieldGeneral(
-                    label: 'Senha',
-                    obscureText: true,
+                  MyTextFormFieldPassword(
                     controller: _passwordEC,
-                    validator: Validatorless.multiple([
-                      Validatorless.required('Senha obrigatória'),
-                      Validatorless.min(
-                          6, 'Senha deve ter pelo menos 6 caracteres'),
-                    ]),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  MyTextFormFieldGeneral(
-                    label: 'Confirmar Senha',
-                    obscureText: true,
+                  MyTextFormFieldPasswordConfirme(
+                    passwordEC: _passwordEC,
                     controller: _confirmPasswordEC,
-                    validator: Validatorless.multiple([
-                      Validatorless.required('Senha obrigatória'),
-                      Validators.compare(
-                          _passwordEC, 'Confirmação de senha é diferente'),
-                    ]),
                   ),
                   const SizedBox(
                     height: 10,
@@ -187,5 +171,4 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 }
 
-class My_TextFormField_General {
-}
+class My_TextFormField_General {}
